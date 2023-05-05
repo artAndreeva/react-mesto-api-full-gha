@@ -10,6 +10,6 @@
 
 IP-адрес 62.84.126.106
 
-Frontend https://...
+Frontend https://mesto.lajolla.nomoredomains.monster/
 
-Backend https://...
+Backend https://api.mesto.lajolla.nomoredomains.monster/
