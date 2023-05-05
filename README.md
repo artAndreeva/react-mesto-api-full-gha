@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 62.84.126.106
+IP 62.84.126.106
 
 Frontend https://mesto.lajolla.nomoredomains.monster/
 
