@@ -102,7 +102,7 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.mesto.lajolla.nomoredomains.monster',
   headers: {
-    "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
+    'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json',
   }
 });
