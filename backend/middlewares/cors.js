@@ -5,6 +5,8 @@ const allowedCors = [
   'http://api.mesto.lajolla.nomoredomains.monster',
   'localhost:3000',
   'localhost:3001',
+  'http://localhost:3000',
+  'http://localhost:3001',
 ];
 
 const setHeaders = (req, res, next) => {
