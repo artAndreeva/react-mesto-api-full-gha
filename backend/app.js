@@ -8,7 +8,7 @@ const authRouter = require('./routes/auth');
 const auth = require('./middlewares/auth');
 const handleErrors = require('./middlewares/handleErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
+// const cors = require('./middlewares/cors');
 
 const app = express();
 
@@ -18,7 +18,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors);
+// app.use(cors);
 app.use(requestLogger);
 
 app.get('/crash-test', () => {

@@ -89,6 +89,7 @@ function App() {
   function handleLogout() {
     localStorage.removeItem('jwt');
     setUserEmail('');
+    setIsLoggedIn(false);
   }
 
   useEffect(() => {
