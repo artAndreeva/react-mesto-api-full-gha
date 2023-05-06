@@ -1,8 +1,8 @@
 const allowedCors = [
-  'https://mesto.lajolla.nomoredomains.monster/',
-  'http://mesto.lajolla.nomoredomains.monster/',
-  'https://api.mesto.lajolla.nomoredomains.monster/',
-  'http://api.mesto.lajolla.nomoredomains.monster/',
+  'https://mesto.lajolla.nomoredomains.monster',
+  'http://mesto.lajolla.nomoredomains.monster',
+  'https://api.mesto.lajolla.nomoredomains.monster',
+  'http://api.mesto.lajolla.nomoredomains.monster',
   'localhost:3000',
   'localhost:3001',
 ];
