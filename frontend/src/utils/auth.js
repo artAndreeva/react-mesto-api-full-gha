@@ -1,4 +1,5 @@
-const BASE_URL = 'https://api.mesto.lajolla.nomoredomains.monster';
+// const BASE_URL = 'https://api.mesto.lajolla.nomoredomains.monster';
+const BASE_URL = 'http://localhost:3001';
 
 function handleResponse(res) {
   if (res.ok) {
@@ -37,7 +38,7 @@ export function checkToken(token) {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
-      "Authorization" : `Bearer ${token}`
+      "Authorization": `Bearer ${token}`
     }
   })
 }

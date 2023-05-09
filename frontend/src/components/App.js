@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, Navigate, Link } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext'
-import { api } from '../utils/api';
+import { Api } from '../utils/api';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -31,6 +31,15 @@ function App() {
   const [userEmail, setUserEmail] = useState('')
   const [isRegister, setIsRegister] = useState(false)
 
+  const api = new Api({
+    baseUrl: 'http://localhost:3001',
+    // baseUrl: 'https://api.mesto.lajolla.nomoredomains.monster',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+      'Content-Type': 'application/json',
+    }
+  });
+
   const navigate = useNavigate();
 
   function handleTokenCheck() {
@@ -40,7 +49,7 @@ function App() {
       .then((res) => {
         if(res) {
           setIsLoggedIn(true);
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
           navigate('/', {replace: true});
         }
       })
@@ -90,13 +99,14 @@ function App() {
     localStorage.removeItem('jwt');
     setUserEmail('');
     setIsLoggedIn(false);
+    navigate('/sign-in', {replace: true});
   }
 
   useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userInfo, initialCards]) => {
         setCurrentUser(userInfo);
-        setCards(initialCards);
+        setCards(initialCards.reverse());
       })
       .catch((error) => {
         console.log(error);

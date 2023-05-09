@@ -4,7 +4,7 @@ const validator = require('validator');
 const { regExp } = require('../utills/constants');
 const UnauthorizedError = require('../erorrs/unauthorized-error');
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     default: 'Жак-Ив Кусто',

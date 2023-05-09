@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { regExp } = require('../utills/constants');
 
-const cardSchema = mongoose.Schema({
+const cardSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -22,8 +22,8 @@ const cardSchema = mongoose.Schema({
     required: true,
   },
   likes: [{
-    type: Array,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     default: [],
   }],
   createdAt: {
