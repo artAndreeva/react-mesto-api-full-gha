@@ -9,6 +9,7 @@ const auth = require('./middlewares/auth');
 const handleErrors = require('./middlewares/handleErrors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const setHeaders = require('./middlewares/cors');
+const NotFoundError = require('./erorrs/not-found-error');
 
 const app = express();
 
@@ -32,6 +33,10 @@ app.get('/crash-test', () => {
 app.use(authRouter);
 app.use(auth);
 app.use(router);
+
+app.use((req, res, next) => {
+  next(new NotFoundError('неправильный путь'));
+});
 
 app.use(errorLogger);
 
