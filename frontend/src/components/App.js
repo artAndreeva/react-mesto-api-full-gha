@@ -103,6 +103,7 @@ function App() {
   }
 
   useEffect(() => {
+    isLoggedIn &&
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userInfo, initialCards]) => {
         setCurrentUser(userInfo);
@@ -111,7 +112,7 @@ function App() {
       .catch((error) => {
         console.log(error);
       })
-  }, [])
+  }, [isLoggedIn])
 
   useEffect(() => {
     if (isEditProfilePopupOpen || isAddPlacePopupOpen || isEditAvatarPopupOpen || isConfirmationPopupOpen || isInfoTooltipPopupOpen || selectedCard) {
