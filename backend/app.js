@@ -34,7 +34,7 @@ app.use(authRouter);
 app.use(auth);
 app.use(router);
 
-app.use((req, res, next) => {
+app.use((next) => {
   next(new NotFoundError('неправильный путь'));
 });
 
