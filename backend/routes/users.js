@@ -7,7 +7,7 @@ const {
   updateAvatar,
   getProfile,
 } = require('../controllers/users');
-const { regExp } = require('../utills/constants');
+const { regExpUrl } = require('../utills/constants');
 
 usersRouter.get('/', getAllUsers);
 usersRouter.get('/me', getProfile);
@@ -27,7 +27,7 @@ usersRouter.patch('/me', celebrate({
 
 usersRouter.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().regex(regExp).required(),
+    avatar: Joi.string().regex(regExpUrl).required(),
   }),
 }), updateAvatar);
 
